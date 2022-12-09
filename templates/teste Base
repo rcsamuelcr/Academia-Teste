@@ -1,0 +1,28 @@
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  {%include 'modulos/_base_head.html'%}
+ 
+  <title>{%block titleh%}{%endblock titleh%}</title>
+</head>
+
+<body>  
+  
+  {% if request.user.is_authenticated %}
+
+    {%include 'modulos/_base_sidebar.html'%}  
+    
+  {% else %}
+  
+    {%include 'modulos/_base_navbar.html'%}  
+  
+  {% endif %}
+
+  {%block conteudo%}
+  {%endblock conteudo%}
+
+
+</body>
+</html> -->

@@ -1,0 +1,87 @@
+<!--
+=========================================================
+* Material Dashboard 2 - v3.0.4
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titleh %}Cadastro{% endblock titleh %}
+
+{% block titulo %}Cadastrar Usuário{% endblock titulo %}
+
+{% block conteudo %}
+  <main class="main-content  mt-0">
+    <section>
+      <span class="mask bg-gradient-dark opacity-6"></span> 
+      <div class="page-header min-vh-100">
+        <div class="container">
+          <div class="row">
+            <div 
+                style="margin-top: 37px!important;
+                      width: 32%;
+                      margin-left: 101px;"
+                class=" col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
+              <div 
+                style="
+                      box-shadow: 5px 9px 10px 0px rgb(0 0 0 / 32%);" 
+                class=" position-relative bg-gradient-primary h-100 m-3 border-radius-lg d-flex flex-column justify-content-center">
+                <img src="{% static 'img/logos/espacoFit.png' %}">
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
+              <div class="card card-plain">
+                <div class="card-header">
+                  <h4 class="font-weight-bolder">Cadastro de Funcionários</h4>
+                </div>
+                <div class="card-body">
+                  <!-- formulário -->
+                  <form method="POST" role="form">
+                    {% csrf_token %}
+                    <div class="input-group input-group-outline mb-3">
+                        <label  class="form-label" for="usuario">Usuário </label>
+                        <input type="text" name="usuario" value="{{request.POST.usuario}}" class="form-control" id="usuario" autocomplete="off">
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                        <label class="form-label" for="nome">Nome </label>
+                        <input type="text" name="nome" value="{{request.POST.nome}}" class="form-control" id="nome" autocomplete="off">
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                        <label class="form-label" for="sobrenome">Sobrenome: </label>
+                        <input type="text" name="sobrenome" value="{{request.POST.sobrenome}}" class="form-control" id="sobrenome" autocomplete="off">
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                        <label class="form-label" for="email">E-mail: </label>
+                        <input type="email" name="email" value="{{request.POST.email}}" class="form-control" id="email" autocomplete="off">
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                        <label class="form-label" for="senha1">Senha: </label>
+                        <input type="password" name="senha1" class="form-control" id="senha1">
+                      </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <label class="form-label" for="senha2">Repita Senha:</label>
+                      <input type="password" name="senha2" class="form-control" id="senha2">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <button type="reset" class="btn btn-primary">Limpar</button> 
+                </form>
+                <!-- fim do formulário -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock conteudo %}

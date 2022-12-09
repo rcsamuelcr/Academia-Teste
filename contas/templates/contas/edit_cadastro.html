@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block titleh %}Editar{% endblock titleh %}
+
+{% block titulo %}Editar Usuário{% endblock titulo %}
+
+{% block conteudo %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="usuario">Usuário: </label>
+        <input type="text" name="usuario" value="{{request.user.username}}" class="form-control" id="usuario" autocomplete="off" readonly>
+    </div>
+    <div class="form-group">
+        <label for="email">E-mail: </label>
+        <input type="email" name="email" value="{{request.user.email}}" class="form-control" id="email" autocomplete="off" readonly>
+    </div>
+    <div class="form-group">
+        <label for="senha1">Senha: </label>
+        <input type="password" name="senha1" class="form-control" id="senha1">
+      </div>
+    <div class="form-group">
+      <label for="senha2">Repita Senha:</label>
+      <input type="password" name="senha2" class="form-control" id="senha2">
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <button type="reset" class="btn btn-secondary">Limpar</button> 
+</form>
+{% endblock conteudo %}

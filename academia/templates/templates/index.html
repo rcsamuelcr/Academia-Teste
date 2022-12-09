@@ -1,0 +1,44 @@
+<!--
+=========================================================
+* Material Dashboard 2 - v3.0.4
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titleh %}Cadastro{% endblock titleh %}
+
+{% block titulo %}Cadastrar de Aluno{% endblock titulo %}
+
+{% block conteudo %}
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+  <div class="page-header min-vh-100">
+    <div class="container">
+      <div class="row">
+        <div 
+            style="margin-top: 37px!important;
+                  width: 41%;
+                  margin-left: 30%;"
+            class=" col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
+          <div 
+            style="
+                  box-shadow: 5px 9px 10px 0px rgb(0 0 0 / 32%);" 
+            class=" position-relative bg-gradient-primary h-100 m-3 border-radius-lg d-flex flex-column justify-content-center">
+            <img src="{% static 'img/logos/espacoFit.png' %}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{%endblock conteudo%}

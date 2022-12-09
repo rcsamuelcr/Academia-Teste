@@ -1,0 +1,64 @@
+<!--
+=========================================================
+* Material Dashboard 2 - v3.0.4
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titleh %}Cadastro{% endblock titleh %}
+
+{% block titulo %}Cadastrar de Aluno{% endblock titulo %}
+
+{% block conteudo %}
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+  <div class="page-header min-vh-100">
+    <div class="container">
+      <div class="row">
+        <table class="table">
+            <thead>
+              <tr>
+                <th class="th">ID</th>
+                <th class="th">Nome</th>
+                <th class="th">Preço</th>
+                <th class="th">Descrição</th>
+                <th class="th">Categoria</th>
+                <th class="th" colspan="2">Operações</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for produto in produtos %}
+              <tr>
+                <td>{{produto.id}}</td>
+                <td> <a href="#">{{produto.nome}}</a> </td>
+                <td>{{produto.preco}}</td>
+                <td>{{produto.descricao}}</td>
+                <td>{{produto.categoria}}</td>
+                <td>
+                  <a title='editar' href="#"><img src=""
+                      width='33px'></a>
+                </td>
+                <td>
+                  <a title='excluir' data-toggle="modal" data-target="#modalExemplo{{produto.id}}"><img
+                      src="" width='35px'></a>
+                </td>
+                <!-- Modal -->
+              </tr>
+              {%endfor%}
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+{%endblock conteudo%}
