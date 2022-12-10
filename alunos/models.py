@@ -18,9 +18,10 @@ class Alunos(models.Model):
 
     def __str__(self):
         return self.name
-        
+
 class DadosAcademia(models.Model):
-    dat_medidas = models.DateField()
+    dat_medidas = models.DateField(primary_key=True)
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     altura = models.FloatField()
     peso = models.FloatField()
     imc = models.FloatField()

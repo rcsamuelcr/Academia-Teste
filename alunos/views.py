@@ -26,6 +26,7 @@ def cad_alunos(request):
         bairro = request.POST.get('bairro')
         rua = request.POST.get('rua')
         numero = request.POST.get('numero')
+
         dat_medidas = request.POST.get('dat_medidas')
         # Objetivo
         # Status da matricula
@@ -49,7 +50,7 @@ def cad_alunos(request):
         if not nome or not nascimento or not telefone \
                 or not email or not rg or not cpf or not bairro\
                 or not rua or not numero or not inscricao:
-            messages.error(request, "Não pode deixar campos da área de dados pessoas em branco!")
+            messages.error(request, "Não pode deixar campos da área de dados pessoais em branco!")
             return render(request, 'template_alunos/cad_alunos.html')
         try:
             validate_email(email)
