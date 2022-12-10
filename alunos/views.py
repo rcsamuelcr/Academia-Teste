@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages, auth
 from django.core.validators import validate_email
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser, User
 from django.contrib.auth.decorators import login_required
+from .models import Alunos
 # Create your views here.
 
 # @login_required(login_url='login')  ------------------------------- DANDO ERRO AO ADICIONAR ESTÁ LINHA ----------------------------------
@@ -14,20 +15,41 @@ def alunos(request):
 def cad_alunos(request):
     if request.method == "POST":
 
-        usuario = request.POST.get('usuario')
         nome = request.POST.get('nome')
-        sobrenome = request.POST.get('sobrenome')
+        # sexo
+        nascimento = request.POST.get('nascimento')
+        telefone = request.POST.get('telefone')
         email = request.POST.get('email')
-        senha1 = request.POST.get('senha1')
-        senha2 = request.POST.get('senha2')
+        rg = request.POST.get('rg')
+        cpf = request.POST.get('cpf')
+        bairro = request.POST.get('bairro')
+        rua = request.POST.get('rua')
+        numero = request.POST.get('numero')
+        inscricao = request.POST.get('inscricao')
+        # Objetivo
+        # inscricao
+        dat_medidas = request.POST.get('dat_medidas')
+        altura = request.POST.get('altura')
+        peso = request.POST.get('peso')
+        imc = request.POST.get('imc')
+        gordura = request.POST.get('gordura')
+        liquido = request.POST.get('liquido')
+        pa = request.POST.get('pa')
+        pulso = request.POST.get('pulso')
+        bat_cardiaco = request.POST.get('bat_cardiaco')
+        quadriceps = request.POST.get('quadriceps')
+        torax = request.POST.get('torax')
+        cintura = request.POST.get('cintura')
+        culote = request.POST.get('culote')
+        biceps_D = request.POST.get('biceps_D')
+        biceps_E = request.POST.get('biceps_E')
+        coxa_D = request.POST.get('coxa_D')
+        coxa_E = request.POST.get('coxa_E')
 
-        if not usuario or not nome or not sobrenome \
-                or not email or not senha1 or not senha2:
-            messages.error(request, "Não pode deixar campos em branco!")
-            return render(request, 'template_alunos/cad_alunos.html')
-
-        if len(usuario) < 4:
-            messages.info(request, "Nome de usuário muito curto!")
+        if not nome or not nascimento or not telefone \
+                or not email or not rg or not cpf or not bairro\
+                or not rua or not numero or not inscricao:
+            messages.error(request, "Não pode deixar campos da área de dados pessoas em branco!")
             return render(request, 'template_alunos/cad_alunos.html')
         try:
             validate_email(email)
@@ -35,27 +57,18 @@ def cad_alunos(request):
             messages.info(request, "E-mail inválido!")
             return render(request, 'template_alunos/cad_alunos.html')
 
-        if senha1 != senha2:
-            messages.error(request, "Senhas diferentes!")
-            return render(request, 'template_alunos/cad_alunos.html')
-
-        if User.objects.filter(username=usuario).exists():
-            messages.error(request, "Usuário já existe.")
-            return render(request, 'template_alunos/cad_alunos.html')
-
         if User.objects.filter(email=email).exists():
-            messages.error(request, "Email já existe.")
+            messages.error(request, "Email já existente!")
             return render(request, 'template_alunos/cad_alunos.htmll')
 
         messages.success(request, "Registrado com sucesso!")
 
-        user = User.objects.create_user(username=usuario, email=email,
-                                        password=senha1, first_name=nome,
-                                        last_name=sobrenome)
+        Alunos.objects.create(name=nome, nasc=nascimento, phone=telefone ,email=email,
+                                        rg=rg, cpf=cpf, bairro=bairro, rua=rua, num_residencia=numero, dat_inscricao=inscricao)
 
-        user.save()
+        Alunos.save()
 
-        return redirect('login')
+        return redirect('alunos')
 
     return render(request, 'template_alunos/cad_alunos.html')
 

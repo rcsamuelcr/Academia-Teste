@@ -3,7 +3,7 @@
 * Material Dashboard 2 - v3.0.4
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Product page: https://www.creative-tim.com/product/material-dashboard
 * Copyright 2022 Creative Tim (https://www.creative-tim.com)
 * Licensed under MIT (https://www.creative-tim.com/license)
 * Coded by Creative Tim
@@ -74,7 +74,7 @@
                           <input type="text" name="bairro" value="{{request.POST.nome}}" class="form-control" id="bairro" autocomplete="off">
                         </div>
                         <div class="input-group input-group-outline mb-3" style="width: 22%;">
-                          <label class="form-label" for="reu">Rua</label>
+                          <label class="form-label" for="rua">Rua</label>
                           <input type="text" name="rua" value="{{request.POST.nome}}" class="form-control" id="rua" autocomplete="off">
                         </div>
                         <div class="input-group input-group-outline mb-3" style="width: 22%;">
@@ -138,8 +138,8 @@
                           <input type="number" name="liquido" value="{{request.POST.altura}}" class="form-control" id="liquido" autocomplete="off">
                         </div>
                         <div class="input-group input-group-outline mb-3" style="width: 22%;">
-                          <label class="form-label" for="PA">Pressão Artérial</label>
-                          <input type="number" name="PA" value="{{request.POST.altura}}" class="form-control" id="PA" autocomplete="off">
+                          <label class="form-label" for="pa">Pressão Artérial</label>
+                          <input type="number" name="pa" value="{{request.POST.altura}}" class="form-control" id="pa" autocomplete="off">
                         </div>
                         <div class="input-group input-group-outline mb-3" style="width: 22%;">
                           <label class="form-label" for="pulso">Pulso</label>
@@ -182,48 +182,6 @@
                           <input type="number" name="coxa_E" value="{{request.POST.altura}}" class="form-control" id="coxa_E" autocomplete="off">
                         </div>
                         </div>
-                    </fieldset>
-                    <fieldset style="border-width: 2px; border-color: black; text-align: center;">
-                      <legend>Séries/Exercícios Sugeridos</legend>
-                      <div class="row car mb-2">
-                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
-                          <select class="form-control input-group input-group-outline" id="dia_semanal" name="dia_semanal" style="width:150px" data-component="dropdown" required="">
-                            <option value="">Dia Semanal</option>
-                            <option value="{{request.POST.segunda}}">Segunda-Feira</option>
-                            <option value="{{request.POST.terca}}">Terça-Feira</option>
-                            <option value="{{request.POST.quarta}}">Quarta-Feira</option>
-                            <option value="{{request.POST.quinta}}">Quinta-Feira</option>
-                            <option value="{{request.POST.sexta}}">Sexta-Feira</option>
-                            <option value="{{request.POST.sabado}}">Sábado</option>
-                          </select>
-                        </div>
-                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
-                          <select class="form-control input-group input-group-outline" id="series" name="series" style="width:150px" data-component="dropdown" required="">
-                            <option value="">Musculos Trabalhados</option>
-                            <option value="{{request.POST.segunda}}">Peito e Triceps</option>
-                            <option value="{{request.POST.terca}}">Costas e Bíceps</option>
-                            <option value="{{request.POST.quarta}}">Pernas e Ombro</option>
-                            <option value="{{request.POST.quinta}}">Pernas</option>
-                            <option value="{{request.POST.sexta}}">Ombro</option>
-                            <option value="{{request.POST.sabado}}">Tríceps</option>
-                            <option value="{{request.POST.sabado}}">Bíceps</option>
-                            <option value="{{request.POST.sabado}}">Peito</option>
-                            <option value="{{request.POST.sabado}}">Costas</option>
-                          </select>
-                        </div>
-                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
-                          <label class="form-label" for="series">Séries</label>
-                          <input type="text" name="series" value="{{request.POST.altura}}" class="form-control" id="series" autocomplete=" Direitaoff">
-                        </div>
-                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
-                          <label class="form-label" for="repeticoes">Repetições</label>
-                          <input type="text" name="repeticoes" value="{{request.POST.altura}}" class="form-control" id="repeticoes" autocomplete=" Direitaoff">
-                        </div>
-                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
-                          <label class="form-label" for="peso">Peso(Kg) Sugerido</label>
-                          <input type="number" name="peso" value="{{request.POST.altura}}" class="form-control" id="peso" autocomplete=" Direitaoff">
-                        </div>
-                      </div>
                     </fieldset>
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                     <button type="reset" class="btn btn-primary">Limpar</button>
