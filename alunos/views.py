@@ -15,6 +15,7 @@ def alunos(request):
 def cad_alunos(request):
     if request.method == "POST":
 
+        inscricao = request.POST.get('inscricao')
         nome = request.POST.get('nome')
         # sexo
         nascimento = request.POST.get('nascimento')
@@ -25,10 +26,9 @@ def cad_alunos(request):
         bairro = request.POST.get('bairro')
         rua = request.POST.get('rua')
         numero = request.POST.get('numero')
-        inscricao = request.POST.get('inscricao')
-        # Objetivo
-        # inscricao
         dat_medidas = request.POST.get('dat_medidas')
+        # Objetivo
+        # Status da matricula
         altura = request.POST.get('altura')
         peso = request.POST.get('peso')
         imc = request.POST.get('imc')
@@ -63,8 +63,8 @@ def cad_alunos(request):
 
         messages.success(request, "Registrado com sucesso!")
 
-        Alunos.objects.create(name=nome, nasc=nascimento, phone=telefone ,email=email,
-                                        rg=rg, cpf=cpf, bairro=bairro, rua=rua, num_residencia=numero, dat_inscricao=inscricao)
+        Alunos.objects.create(name='nome', nasc='nascimento', phone='telefone' ,email='email',
+                                        rg='rg', cpf='cpf', bairro='bairro', rua='rua', num_residencia='numero', dat_inscricao='inscricao')
 
         Alunos.save()
 

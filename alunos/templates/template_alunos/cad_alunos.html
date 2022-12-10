@@ -39,6 +39,10 @@
                       {% csrf_token %}
                       <div class="row car mb-2">  
                         <div class="input-group input-group-outline mb-3" style="width: 22%;">
+                          <label class="form-label" for="inscricao">Data de Inscrição </label>
+                          <input type="date" name="inscricao" value="{{request.POST.nome}}" class="form-control" id="inscricao" autocomplete="off">
+                        </div>
+                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
                             <label  class="form-label" for="nome">Nome completo do Aluno </label>
                             <input type="text" name="nome" value="{{request.POST.nome}}" class="form-control" id="nome" autocomplete="off">
                         </div>
@@ -62,11 +66,11 @@
                             <input type="email" name="email" value="{{request.POST.email}}" class="form-control" id="email" autocomplete="off">
                         </div>
                         <div class="input-group input-group-outline mb-3" style="width: 22%;">
-                          <label class="form-label" for="rg">RG: </label>
+                          <label class="form-label" for="rg">RG</label>
                           <input type="number" name="rg" value="{{request.POST.email}}" class="form-control" id="rg" autocomplete="off">
                         </div>
                         <div class="input-group input-group-outline mb-3" style="width: 22%;">
-                          <label class="form-label" for="cpf">CPF: </label>
+                          <label class="form-label" for="cpf">CPF</label>
                           <input type="number" name="cpf" value="{{request.POST.email}}" class="form-control" id="cpf" autocomplete="off">
                         </div>
                         <div class="input-group input-group-outline mb-3" style="width: 22%;">
@@ -81,6 +85,10 @@
                           <label class="form-label" for="numero">Nº da Residência</label>
                           <input type="text" name="numero" value="{{request.POST.nome}}" class="form-control" id="numero" autocomplete="off">
                         </div>
+                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
+                          <label class="form-label" for="observacao">Observação</label>
+                          <input type="text" name="observacao" value="{{request.POST.nome}}" class="form-control" id="observacao" autocomplete="off">
+                        </div>
                       </div>
                     </fieldset>
 
@@ -88,8 +96,8 @@
                       <legend>Dados para a Academia</legend>
                       <div class="row car mb-2">
                         <div class="input-group input-group-outline mb-3" style="width: 22%;">
-                          <label class="form-label" for="inscricao">Data de Inscrição </label>
-                          <input type="date" name="inscricao" value="{{request.POST.nome}}" class="form-control" id="inscricao" autocomplete="off">
+                          <label class="form-label" for="dat_medidas">Data de Coleta das Medidas</label>
+                          <input type="date" name="dat_medidas" value="{{request.POST.dat_medidas}}" class="form-control" id="dat_medidas" autocomplete="off">
                         </div>
                         <div class="input-group input-group-outline mb-3" style="width: 22%;">
                           <label class="form-label" for="objetivo">Objetivo</label>
@@ -105,17 +113,8 @@
                           <select class="form-control input-group input-group-outline" id="status" name="status" style="width:150px" data-component="dropdown" required="">
                             <option value="">Status da Matrícula</option>
                             <option value="{{request.POST.masculino}}">Matrículado</option>
-                            <option value="{{request.POST.feminino}}">Desistente</option>
+                            <option value="{{request.POST.feminino}}">Inativo</option>
                           </select>
-                        </div>
-                      </div>
-                    </fieldset>
-                    <fieldset style="border-width: 2px; border-color: black; text-align: center;">
-                      <legend>Medidas</legend>
-                      <div class="row car mb-2"> 
-                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
-                          <label class="form-label" for="dat_medidas">Data de Coleta das Medidas</label>
-                          <input type="date" name="dat_medidas" value="{{request.POST.dat_medidas}}" class="form-control" id="dat_medidas" autocomplete="off">
                         </div>
                         <div class="input-group input-group-outline mb-3" style="width: 22%;">
                           <label class="form-label" for="altura">Altura</label>
@@ -181,7 +180,35 @@
                           <label class="form-label" for="coxa_E">Coxa Esquerda</label>
                           <input type="number" name="coxa_E" value="{{request.POST.altura}}" class="form-control" id="coxa_E" autocomplete="off">
                         </div>
+                      </div>
+                    </fieldset>
+                    <fieldset style="border-width: 2px; border-color: black; text-align: center;">
+                      <legend>Séries/Exercícios Sugeridos</legend>
+                      <div class="row car mb-2">
+                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
+                          <select class="form-control input-group input-group-outline" id="dia_semanal" name="dia_semanal" style="width:150px" data-component="dropdown" required="">
+                            <option value="">Dia Semanal</option>
+                            <option value="{{request.POST.segunda}}">Segunda-Feira</option>
+                            <option value="{{request.POST.terca}}">Terça-Feira</option>
+                            <option value="{{request.POST.quarta}}">Quarta-Feira</option>
+                            <option value="{{request.POST.quinta}}">Quinta-Feira</option>
+                            <option value="{{request.POST.sexta}}">Sexta-Feira</option>
+                            <option value="{{request.POST.sabado}}">Sábado</option>
+                          </select>
                         </div>
+                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
+                          <label class="form-label" for="musc_trabalhado">Musculo Trabalhado</label>
+                          <input type="text" name="musc_trabalhado" value="{{request.POST.altura}}" class="form-control" id="musc_trabalhado" autocomplete="off">
+                        </div>
+                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
+                          <label class="form-label" for="series">Séries</label>
+                          <input type="text" name="series" value="{{request.POST.altura}}" class="form-control" id="series" autocomplete=" Direitaoff">
+                        </div>
+                        <div class="input-group input-group-outline mb-3" style="width: 22%;">
+                          <label class="form-label" for="repeticoes">Repetições</label>
+                          <input type="text" name="repeticoes" value="{{request.POST.altura}}" class="form-control" id="repeticoes" autocomplete=" Direitaoff">
+                        </div>
+                      </div>
                     </fieldset>
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                     <button type="reset" class="btn btn-primary">Limpar</button>
