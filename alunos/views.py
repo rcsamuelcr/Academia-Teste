@@ -60,14 +60,21 @@ def cad_alunos(request):
 
         if User.objects.filter(email=email).exists():
             messages.error(request, "Email já existente!")
-            return render(request, 'template_alunos/cad_alunos.htmll')
+            return render(request, 'template_alunos/cad_alunos.html')
 
         messages.success(request, "Registrado com sucesso!")
 
-        Alunos.objects.create(name='nome', nasc='nascimento', phone='telefone' ,email='email',
-                                        rg='rg', cpf='cpf', bairro='bairro', rua='rua', num_residencia='numero', dat_inscricao='inscricao')
+        Alunos.objects.create(inscricao ='inscricao', nome='nome', nascimento='nascimento', telefone='telefone' , email='email',
+                                        rg='rg', cpf='cpf', bairro='bairro', rua='rua', num_residencia='numero')
+
+
+        DadosAcademia.objects.create(dat_medidas='dat_medidas', altura ='altura', peso = 'peso', imc = 'imc', gordura = 'gordura',
+                                    liquido = 'liquido', pa = 'pa', pulso = 'pulso', bat_cardiaco = 'bat_cardiaco', quadriceps = 'quadriceps',
+                                    torax = 'torax', cintura = 'cintura', culote = 'culote', biceps_D = 'biceps_D', biceps_E = 'biceps_E',
+                                    coxa_D = 'coxa_D', coxa_E = 'coxa_E')
 
         Alunos.save()
+        DadosAcademia.save()
 
         return redirect('alunos')
 

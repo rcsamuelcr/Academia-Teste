@@ -4,8 +4,8 @@ from django.db import models
 
 class Alunos(models.Model):
 
-    inscricao = models.DateField(primary_key=True)
-    name = models.CharField(max_length=50)
+    inscricao = models.DateField(auto_now = True,primary_key=True)
+    nome = models.CharField(max_length=50)
     # sexo
     nascimento = models.DateField()
     telefone = models.FloatField()
@@ -14,27 +14,27 @@ class Alunos(models.Model):
     cpf = models.FloatField()
     bairro = models.CharField(max_length=40)
     rua = models.CharField(max_length=80)
-    numero = models.FloatField()
+    num_residencia = models.FloatField()
 
     def __str__(self):
-        return self.name
+        return self.nome
 
 class DadosAcademia(models.Model):
     dat_medidas = models.DateField(primary_key=True)
-    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
-    altura = models.FloatField()
-    peso = models.FloatField()
-    imc = models.FloatField()
-    gordura = models.FloatField()
-    liquido = models.FloatField()
-    pa = models.FloatField()
-    pulso = models.FloatField()
-    bat_cardiaco = models.FloatField()
-    quadriceps = models.FloatField()
-    torax = models.FloatField()
-    cintura = models.FloatField()
-    culote = models.FloatField()
-    biceps_D = models.FloatField()
-    biceps_E = models.FloatField()
-    coxa_D = models.FloatField()
-    coxa_E = models.FloatField()
+    aluno = models.ForeignKey(Alunos, on_delete=models.CASCADE)
+    altura = models.FloatField(blank =True, null= True)
+    peso = models.FloatField(blank =True, null= True)
+    imc = models.FloatField(blank =True, null= True)
+    gordura = models.FloatField(blank =True, null= True)
+    liquido = models.FloatField(blank =True, null= True)
+    pa = models.FloatField(blank =True, null= True)
+    pulso = models.FloatField(blank =True, null= True)
+    bat_cardiaco = models.FloatField(blank =True, null= True)
+    quadriceps = models.FloatField(blank =True, null= True)
+    torax = models.FloatField(blank =True, null= True)
+    cintura = models.FloatField(blank =True, null= True)
+    culote = models.FloatField(blank =True, null= True)
+    biceps_D = models.FloatField(blank =True, null= True)
+    biceps_E = models.FloatField(blank =True, null= True)
+    coxa_D = models.FloatField(blank =True, null= True)
+    coxa_E = models.FloatField(blank =True, null= True)
